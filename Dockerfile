@@ -1,6 +1,8 @@
 FROM centos
 MAINTAINER mike "675509312@qq.com"
 RUN mkdir -p /home/mike
-ADD hello-kubernetes /home/mike/
-EXPOSE 10000
+
+COPY hello-kubernetes /home/mike/
+RUN chmod +x /home/mike/hello-kubernetes
+WORKDIR /home/mike/
 ENTRYPOINT ["/home/mike/hello-kubernetes"]
